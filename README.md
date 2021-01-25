@@ -2,58 +2,56 @@
 <img src="https://i.imgur.com/WuGGblj.png" alt="img" width="200px">
 </p>
 
-## ARCH DRACULA - THE RETURN OF THE DOTFILES
+## ARCH DRACULA - THE RETURN OF THE DOTFILES (THE AWESOME EDITION)
 
 ArchDracula By:
 
 - Jeremie Cote
 - @jeremie1001
 
-Based on terminal color theme Dracula and inpired by https://github.com/manilarome/the-glorious-dotfiles
+Based on terminal color theme Dracula and inpired by https://github.com/manilarome/the-glorious-dotfiles. Icons modified from [flaticons repository](https://www.flaticon.com/)
 
-Disclaimer, some of the aspects of this rice arent completely functional at this time as this is still a work in progress so please be please be patient. This includes the do not disturb function, bluetooth, wifi, battery and volume buttons on the main bar, and various volume functionality syncing
+Disclaimer, some of the aspects of this rice arent completely functional at this time as this is still a work in progress so please be please be patient. Components still be worked on can be found in the TODO.txt file.
+
+This is a more specific repo focused on just the AwesomeWM config portion of my rice. Full git bare repo can be found [here](https://github.com/Jeremie1001/dotfiles). Some relevant configs can be found there such as picom, gtk, [firefox](https://github.com/Jeremie1001/dotfiles/tree/master/.config/chrome), [sddm](https://github.com/Jeremie1001/dotfiles/tree/master/.config/sddm) and [rofi](https://github.com/Jeremie1001/dotfiles/tree/master/.config/rofi) themes.
 
 ### Spoilers
 
 <p align="center">
-<img src="https://i.imgur.com/yFGDBQJ.png" alt="img" width="900px">
+<img src="https://i.imgur.com/GhyK4Bw.png" alt="img" width="900px">
 </p>
 
 ### Quick stats
 
 - **OS**: Btw... Arch
-- **Shell**: zsh
+- **WM**: AwesomeWM (duh)
+  - More specifically, it uses awesome-git since it includes some features not included in mainline awesome such as as the colored and rounded progress bars in the control center
+- **Shell**: zsh with powerlevel10k
 - **Terminal**: Kitty
-- **Editor**: Atom
+- **Editor**: VSCodium
 - **File Manager**: Nemo
-- **Launcher**: Dmenu with some rofi mixed in
+- **Launcher**: Rofi in the style of dmenu
 - **Browser**: Firefox
-- **Color Scheme**: [Dracula](https://draculatheme.com/)
+- **Color Scheme**: [Dracula](https://draculatheme.com/) ([hex codes](https://github.com/dracula/dracula-theme))
 - **GTK Theme**: [Ant Dracula](https://draculatheme.com/gtk)
 - **Wallpaper**: [Arch Kraken](https://i.imgur.com/S0LHsad.png)
 
 ### Various dependencies
 
 - i3lock-fancy (exit_screen module)
-- blueman (bluetooth buttons)
+- picom (compositor)
 - rofi (launchers)
-- dmenu (hotkeys)
 - pamixer (volume controls)
 - nordvpn-bin (vpn widgets)
 - lm_sensors (temperature dial in control center)
 - feh (background)
 - light (brightness)
-- flameshot (screenshot for now)
+- flameshot (screenshot)
 
 **Hotkey dependencies**
 
 - firefox
-- dmenu
 - rofi
 - nemo
 - kitty
-- atom
-
-### Install
-
-Its a git bare repo so if you follow the instructions at the bottom of this [page](https://www.atlassian.com/git/tutorials/dotfiles) you should be set
+- VSCodium
