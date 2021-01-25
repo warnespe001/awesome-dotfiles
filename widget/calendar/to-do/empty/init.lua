@@ -7,7 +7,10 @@ local icons = require('themes.icons')
 local colors = require('themes.dracula.colors')
 local watch = require('awful.widget.watch')
 
-local notifIcon = wibox.widget {
+-- Create widget to add to to do panel when there are no tasks
+
+-- Icon widget for left side
+local toDoIcon = wibox.widget {
 	{
 		{
 			{
@@ -26,6 +29,7 @@ local notifIcon = wibox.widget {
  widget = clickable_container
 }
 
+-- Text content widget for right side
 local content = wibox.widget {
 	{
 		{
@@ -40,10 +44,11 @@ local content = wibox.widget {
 	bg = colors.selection,
 	widget = wibox.container.background
 }
-	
+
+-- Combmine the two widgets into main rounded rectangle widget with border
 local box = wibox.widget {
 	{
-		notifIcon,
+		toDoIcon,
 		content,
 		layout = wibox.layout.align.horizontal,
 	},

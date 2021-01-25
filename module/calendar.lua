@@ -1,4 +1,3 @@
-local awful = require('awful')
 local gears = require('gears')
 local wibox = require('wibox')
 local beautiful = require('beautiful')
@@ -6,8 +5,16 @@ local colors = require('themes.dracula.colors')
 local dpi = require('beautiful').xresources.apply_dpi
 local screen_geometry = require('awful').screen.focused().geometry
 
+--- Build and combine all widgets that go into right side panel
+  -- Calendar title
+  -- Calendar
+  -- To do title
+  -- To do
+
+-- Variable for consistent width of panel
 local width = dpi(410)
 
+-- Helper function for building rounded widget with margins
 local format_item = function(widget)
   return wibox.widget {
 		{
@@ -29,6 +36,7 @@ local format_item = function(widget)
 	}
 end
 
+-- Build calendar title bar widget
 local title = wibox.widget {
   {
     {
@@ -68,6 +76,7 @@ local title = wibox.widget {
   layout,
 }
 
+-- Buld to do title bar widget
 local to_do_title = wibox.widget {
   {
     {
@@ -104,6 +113,7 @@ local to_do_title = wibox.widget {
   layout,
 }
 
+-- Build calendar widget
 local calendar_panel = wibox.widget {
   {
       {
@@ -132,6 +142,7 @@ local calendar_panel = wibox.widget {
   layout,
 }
 
+-- Build to do widget
 local to_do_panel = wibox.widget {
   {
       {
@@ -161,6 +172,7 @@ local to_do_panel = wibox.widget {
   layout,
 }
 
+-- Intialize panel wibox with dimensions
 calendarPanel = wibox(
   {
     x = screen_geometry.width-width-dpi(8),
@@ -176,6 +188,7 @@ calendarPanel = wibox(
   }
 )
 
+-- Function to resize calendar when menu bar is hidden
 function cal_resize()
   cc_height = screen_geometry.height
   if calendarPanel.height == screen_geometry.height-dpi(35) then
@@ -185,8 +198,10 @@ function cal_resize()
   end
 end
 
+-- Panel visibility status variable (necessary?)
 _G.cal_status = false
 
+-- Toggle panel visibility
 function cal_toggle()
   if calendarPanel.visible == false then
     cal_status = true
@@ -198,6 +213,7 @@ function cal_toggle()
   end
 end
 
+-- Build panel wibox
 calendarPanel:setup {
   spacing = dpi(15),
   title,

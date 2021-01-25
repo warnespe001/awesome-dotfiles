@@ -5,18 +5,22 @@ local clickable_container = require('widget.clickable-container')
 local dpi = require('beautiful').xresources.apply_dpi
 local icons = require('themes.icons')
 local colors = require('themes.dracula.colors')
-local watch = require('awful.widget.watch')
 
+--- Function that creates box element with specified title string and message string to be added to the panel
+
+-- Initialize elements variable
 local elements = {}
 
 elements.create = function(title, message)
   local box = {}
 
+  -- Icon widget
   local toDoIcon = wibox.widget {
     image = icons.toDo,
     widget = wibox.widget.imagebox,
   }
 
+  -- Icon widget container widget
   local toDoBg = wibox.widget {
     {
       toDoIcon,
@@ -28,6 +32,7 @@ elements.create = function(title, message)
     widget = wibox.container.background
   }
 
+  -- Make icon widget container widget cliackable
   local toDoWidget = wibox.widget {
     toDoBg,
     forced_width = 40,
@@ -35,6 +40,8 @@ elements.create = function(title, message)
     widget = clickable_container
   }
 
+
+  -- Change color and icon on hover
   toDoWidget:connect_signal(
     "mouse::enter",
     function()
@@ -51,6 +58,7 @@ elements.create = function(title, message)
     end
   )
 
+  -- Remove this box from panel if clicked
   toDoWidget:buttons(
     gears.table.join(
       awful.button(
@@ -64,6 +72,7 @@ elements.create = function(title, message)
     )
   )
 
+  -- Combine title and message vertically into content widget
   local content = wibox.widget {
     {
       {
@@ -87,6 +96,7 @@ elements.create = function(title, message)
     widget = wibox.container.background
   }
   
+  -- Combine content widget with left side clickable icon widget in bordered rounded rectangle container
   box = wibox.widget {
     {
       toDoWidget,

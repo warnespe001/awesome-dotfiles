@@ -248,7 +248,7 @@ print(json.stringify(jsonTable))
 print()
 
 
---FIND DATE
+-- READ TO DO TABLE IN AND PRINT TITLE AND DESCRIPTIONS FOR EACH EVENT AT SPECIFIC DATE
 
 local date2 = "a"..os.date("%Y%m%d", os.time({year=2021, month=1, day=22}))
 

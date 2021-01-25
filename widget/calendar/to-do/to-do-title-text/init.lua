@@ -1,24 +1,27 @@
 local awful = require('awful')
 local wibox = require('wibox')
 local gears = require('gears')
-local clickable_container = require('widget.clickable-container')
 local dpi = require('beautiful').xresources.apply_dpi
 local icons = require('themes.icons')
-local colors = require('themes.dracula.colors')
-local watch = require('awful.widget.watch')
 
+--- Title text for calendar portion of Calendar/To do panel
+
+
+-- Left text
 local main_content = wibox.widget {
 	text = "to do",
   font = 'Inter Bold 14',
 	widget = wibox.widget.textbox
 }
 
+-- Right text
 local date_content = wibox.widget {
 	text =os.date("%Y/%m/%d", os.time(os.date('*t'))),
   font = 'Inter Bold 14',
 	widget = wibox.widget.textbox,
 }
 
+-- Left text container widget
 local widget_main = wibox.widget {
 	layout = wibox.layout.align.vertical,
 	expand = 'none',
@@ -31,6 +34,7 @@ local widget_main = wibox.widget {
 	nil
 }
 
+-- Right text container widget
 local widget_date = wibox.widget {
 	layout = wibox.layout.align.vertical,
 	expand = 'none',
@@ -42,6 +46,7 @@ local widget_date = wibox.widget {
 	nil
 }
 
+-- Spacer bar between
 local spacer_bar = wibox.widget {
   {
     orientation = 'vertical',
@@ -54,14 +59,12 @@ local spacer_bar = wibox.widget {
   widget = wibox.container.margin
 }
 
+-- Update right text to specified string
 update_to_do_date_text = function(string)
 	date_content:set_text(string)
 end
 
-update_to_do_date_text2 = function(string)
-	main_content:set_text(string)
-end
-
+-- Combine 2 text widgets and spacer bar into 1
 local widget = wibox.widget {
    {
     widget_main,
