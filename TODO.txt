@@ -1,0 +1,21 @@
+TODO
+
+wifi (bar)
+DONE - notif-center
+  -Clear button code cleanup
+  -Remove notif from nc when clicked on
+  -Left logo is clickable?
+N/A - Bluetooth (bar)
+DONE - Calendar
+Cleanup local vs global functions
+cpu dial (cc)
+brightness (cc)
+DONE - DND (cc + nc)
+  -Destroy on screen if fullscreen
+  -DND timer?
+Git
+Search
+DONE - Rofi
+Folder names
+Bar status to global variable (change watch functions to watch variables)
+  -If fixed add watch to DnD
