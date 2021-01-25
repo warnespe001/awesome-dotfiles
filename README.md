@@ -55,3 +55,30 @@ This is a more specific repo focused on just the AwesomeWM config portion of my 
 - nemo
 - kitty
 - VSCodium
+
+**File structure**
+
+- /config
+  - Holds files that have to do with general window manager manipulation
+  - /keys
+    - Shortcuts
+  - /client
+    - Anything to do with client window manipulation, so rules, other shortcuts, window focusing, button signals
+- /layout
+  - Tags and tiling manager layouts
+- /library
+  - External library files that are needed or modified for specific use cases
+- /module
+  - Initialization files of various wibox modules used in the rice
+  - Left side control center panel, right side calendar/to do panel, right side notification panel, menu bar, exit screen, double borders, modified awesome hotkey helper (WiP), notififcations
+- /scripts
+  - Various bash scripts used in configs
+    - Just vpn startup script atm
+- /themes
+  - Awesome theme, defines beautiful variables
+  - Sorted into folders per theme
+    - Has a color.lua file that defines variables with hex codes for colors used throught the rice
+  - All icons
+  - Wallpaper images
+- /widget
+  - All widgets used in construction of modules, sorted into folders specific to each module
