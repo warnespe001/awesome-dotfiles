@@ -64,6 +64,10 @@ update_to_do_date_text = function(string)
 	date_content:set_text(string)
 end
 
+update_to_do_date_text2 = function(string)
+	main_content:set_text(string)
+end
+
 -- Combine 2 text widgets and spacer bar into 1
 local widget = wibox.widget {
    {

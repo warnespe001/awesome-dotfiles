@@ -30,9 +30,39 @@ end
 
 -- Function that removes specific elements from panel
   -- If element is removed and the panel becomes empty, add empty element
-removeToDoElement = function(box)
+removeToDoElement = function(dateString, int, box)
+
+  -- Remove the element from the panel
   panelLayout:remove_widgets(box)
 
+  -- Read in json file, change completion status from 0 to 1 and rewrite to json file
+  awful.spawn.easy_async_with_shell (
+
+    -- Read json file in as string called stdout
+    [[cat /home/jeremie1001/.config/awesome/widget/calendar/to-do/to-do-background/todo.json]],
+    function(stdout)
+
+      -- Convert json table string to lua table
+      jsonTable = json.parse(stdout)
+
+      -- Change completion status to 1 (complete)
+      _G["jsonTable"][dateString][int].status = 1
+
+      -- Convert back into json string, replace " characters with \" for bash processing
+      jsonString = string.gsub(json.stringify(jsonTable), "\"", "\\\"")
+
+      -- Write back into json file
+      awful.spawn.with_shell(
+        'echo \"' .. jsonString .. '\" > /home/jeremie1001/.config/awesome/widget/calendar/to-do/to-do-background/todo.json'
+      )
+
+      -- Delete global variables
+      --jsonTable = nil
+      --jsonString = nil
+    end
+  )
+
+  -- If there are no longer any elements after removal of this element, add a new empty element
   if #panelLayout.children == 0 then
     panelLayout:reset(panelLayout)
     panelLayout:insert(1, emptyCenter)
@@ -74,11 +104,18 @@ updateToDoPanel = function(date)
       -- If there are entries for the date remove empty element, and insert an element for each entry
         -- _G[string] allows the use of a string as a variable name
           -- Used for lua table referencing
-        -- If status variable is  = 1, it means the task is done and do not insert it (not done this feature yet)
+        -- If status variable is  = 1, it means the task is done and do not insert it
       if tabSize(_G["toDoTable"][dateString]) > 0 then
         panelLayout:reset(panelLayout)
+        local count = 0
         for i=1, tabSize(_G["toDoTable"][dateString]), 1 do
-          panelLayout:insert(1, box.create(_G["toDoTable"][dateString][i].title, _G["toDoTable"][dateString][i].description))
+          if _G["toDoTable"][dateString][i].status == 0 then
+            panelLayout:insert(1, box.create(dateString, i, _G["toDoTable"][dateString][i]))
+            count = count + 1
+          end
+        end
+        if count == 0 then
+          panelLayout:insert(1, emptyCenter)
         end
       end
     end

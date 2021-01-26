@@ -11,7 +11,7 @@ local colors = require('themes.dracula.colors')
 -- Initialize elements variable
 local elements = {}
 
-elements.create = function(title, message)
+elements.create = function(dateString, int, elementTable)
   local box = {}
 
   -- Icon widget
@@ -66,7 +66,7 @@ elements.create = function(title, message)
         1,
         nil,
         function()
-          _G.removeToDoElement(box)
+          _G.removeToDoElement(dateString, int, box)
         end
       )
     )
@@ -77,12 +77,12 @@ elements.create = function(title, message)
     {
       {
         {
-          text = title,
+          text = elementTable.title,
           font = 'Inter Bold 10',
           widget = wibox.widget.textbox,
         },
         {
-          text = message,
+          text = elementTable.description,
           font = 'Inter 8',
           widget = wibox.widget.textbox,
         },
