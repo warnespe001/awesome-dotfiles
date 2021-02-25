@@ -100,6 +100,15 @@ local globalKeys = awful.util.table.join(
 		{description = "focus the next screen", group = "Screen"}
 	),
 
+    awful.key(
+		{modkey, "Control"},
+		"Right",
+		function ()
+			awful.screen.focus_relative( 1)
+		end,
+		{description = "focus the next screen", group = "Screen"}
+	),
+
   awful.key(
 		{modkey, "Control"},
 		"k",
@@ -108,6 +117,16 @@ local globalKeys = awful.util.table.join(
 		end,
 		{description = "focus the previous screen", group = "Screen"}
 	),
+
+    awful.key(
+		{modkey, "Control"},
+		"Left",
+		function ()
+			awful.screen.focus_relative(-1)
+		end,
+		{description = "focus the previous screen", group = "Screen"}
+	),
+
 
   awful.key(
 		{modkey},

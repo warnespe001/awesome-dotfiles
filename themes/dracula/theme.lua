@@ -6,7 +6,7 @@ local colors = require('themes.dracula.colors')
 local theme = {}
 
 theme.useless_gap   = dpi(4)
-theme.border_width  = dpi(7)
+theme.border_width  = dpi(3)
 
 theme.hotkeys_bg = colors.selection
 theme.hotkeys_fg = colors.white

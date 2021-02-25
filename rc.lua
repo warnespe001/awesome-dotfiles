@@ -94,3 +94,5 @@ _G.root.keys(require('config.keys.global'))
 --█▄▄▄█▄▄▄█▄▄▄▄█▄▄▄▄███▄▄▄▄██▄▄▄▄▄█▄▄▄▄▄█▄▄▄▄▄█
 
 require('module')
+
+local awful = require('awful')

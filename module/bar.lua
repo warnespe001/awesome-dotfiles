@@ -70,6 +70,7 @@ local bar = function(s)
 	s.battery = require('widget.bar.battery')(colors.orange, 7)
 	s.volume = require('widget.bar.volume')(colors.yellow, 7)
 	s.vpn = require('widget.bar.vpn')(colors.green, 7)
+    s.cur_layout = require('widget.bar.cur_layout')(colors.purple, 7)
 	s.focused = require('widget.bar.focused')(colors.purple, 7)
 	s.menu = require('widget.bar.menu')(colors.comment, 7)
 	local tags = require('widget.bar.tags')(s, colors.purple, colors.cyan, 3)
@@ -82,6 +83,7 @@ local bar = function(s)
 			spacing = dpi(5),
 			s.menu,
 			s.focused,
+            s.cur_layout,
 		},
 		{
 			layout = wibox.layout.fixed.horizontal,

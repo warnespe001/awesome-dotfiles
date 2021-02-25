@@ -1,6 +1,6 @@
 return {
   default = {
-    terminal = "kitty",
+    terminal = "terminator",
     editor = "vscodium",
     browser = "firefox",
     file_manager = "nemo",

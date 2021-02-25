@@ -12,7 +12,7 @@ configuration {
 	bw: 0;
   fullscreen: false;
   show-icons: true;
-	terminal: "kitty";
+	terminal: "terminator";
 	sidebar-mode: false;
 }
 

@@ -5,7 +5,7 @@ local clickable_container = require('widget.clickable-container')
 local dpi = require('beautiful').xresources.apply_dpi
 local icons = require('themes.icons')
 
-local time = '%H:%M:%S'
+local time = '%I:%M:%S %p'
 local date = '%d.%b.%Y'
 
 local return_button = function(color, space)
