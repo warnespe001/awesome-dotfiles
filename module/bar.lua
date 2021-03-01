@@ -93,7 +93,6 @@ local bar = function(s)
 		{
 			layout = wibox.layout.fixed.horizontal,
 			spacing = dpi(5),
-			s.vpn,
 			s.volume,
 			s.battery,
 			s.network,

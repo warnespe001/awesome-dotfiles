@@ -160,15 +160,6 @@ local globalKeys = awful.util.table.join(
 
   awful.key(
   	{modkey},
-  	"e",
-  	function ()
-  		awful.spawn(apps.default.editor)
-    end,
-		{description = "Open Atom", group = "Default programs"}
-	),
-
-  awful.key(
-  	{modkey},
   	"f",
   	function ()
   		awful.spawn(apps.default.browser)
@@ -180,9 +171,9 @@ local globalKeys = awful.util.table.join(
   	{modkey},
   	"t",
   	function ()
-  		awful.spawn(apps.default.email)
+  		awful.spawn(apps.default.work_chat)
     end,
-		{description = "Open Thunderbird", group = "Default programs"}
+		{description = "Open MS Teams", group = "Default programs"}
 	),
 
   awful.key(
@@ -196,11 +187,29 @@ local globalKeys = awful.util.table.join(
 
   awful.key(
   	{modkey},
+  	"s",
+  	function ()
+  		awful.spawn(apps.default.music)
+    end,
+		{description = "Open Spotify", group = "Default programs"}
+	),
+
+  awful.key(
+  	{modkey},
   	"n",
   	function ()
-  		awful.spawn(apps.default.file_manager)
+  		awful.spawn(apps.default.editor)
     end,
-		{description = "Open Nemo", group = "Default programs"}
+		{description = "Open NeoVim", group = "Default programs"}
+	),
+
+  awful.key(
+  	{modkey},
+  	"q",
+  	function ()
+  		awful.spawn(apps.default.ide)
+    end,
+		{description = "Open QtCreator", group = "Default programs"}
 	),
 
   awful.key(
@@ -365,7 +374,7 @@ local globalKeys = awful.util.table.join(
 	),
 
   awful.key(
-    {modkey},
+    {modkey, "Ctrl"},
     "q",
 		function()
 			exit_screen_show()
